@@ -1,5 +1,8 @@
 class NewslettersController < ApplicationController
-
+  before_filter :authenticate_user!, :except => [:index]
+  
+  
+  
  def index
    @newsletters = Newsletter.all
   end
@@ -23,9 +26,14 @@ class NewslettersController < ApplicationController
     @newsletters.destroy
     redirect_to newsletters_path, notice:  "The newsletters #{@newsletters.name} has been deleted."
   end
+  
+  
 
 private
   def newsletters_params
     params.require(:newsletter).permit(:name, :attachment)
+  end
+  
+  def require_authentication
   end
 end
