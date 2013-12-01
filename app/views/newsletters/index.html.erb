@@ -1,0 +1,23 @@
+<% if !flash[:notice].blank? %>
+  <div class="alert alert-info">
+  <%= flash[:notice] %>
+  </div>
+<% end %>
+
+<br />
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+  </tr>
+  </thead>
+  <tbody>
+    <% @newsletters.each do |newsletters| %>
+      <tr>
+        
+        <td><%= link_to newsletters.name, newsletters.attachment_url %></td>
+        <td><%= button_to "Delete",  newsletters, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{newsletters.name}?" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
