@@ -3,10 +3,7 @@
   <%= flash[:notice] %>
   </div>
 <% end %>
-<br />
-<%= link_to "Upload Newsletter", new_newsletter_path, class: "btn btn-primary" %>
-<br />
-<br />
+
 <br />
 <table class="table table-bordered table-striped">
   <thead>
@@ -17,10 +14,10 @@
   <tbody>
     <% @newsletters.each do |newsletters| %>
       <tr>
-        
-        <td><%= link_to newsletters.name, newsletters.attachment_url %></td>
+                <td><%= link_to newsletters.name, newsletters.attachment_url %></td>
         <td><%= button_to "Delete",  newsletters, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{newsletters.name}?" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+<h3><%= link_to "Upload Newsletter", new_newsletter_path, class: "btn btn-primary" %></h3>

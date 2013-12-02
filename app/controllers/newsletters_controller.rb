@@ -5,13 +5,13 @@ class NewslettersController < ApplicationController
   
  def index
    @newsletters = Newsletter.all
-  end
+ end
 
-  def new
+ def new
     @newsletters = Newsletter.new
-  end
+ end
   
-  def create
+ def create
     @newsletters = Newsletter.new(newsletters_params)
 
     if @newsletters.save
@@ -19,21 +19,21 @@ class NewslettersController < ApplicationController
     else
       render "new"
     end
-  end
-
-  def destroy
+ end
+  
+ def destroy
     @newsletters= Newsletter.find(params[:id])
     @newsletters.destroy
     redirect_to newsletters_path, notice:  "The newsletters #{@newsletters.name} has been deleted."
-  end
+ end
   
   
 
 private
-  def newsletters_params
+ def newsletters_params
     params.require(:newsletter).permit(:name, :attachment)
-  end
+ end
   
-  def require_authentication
-  end
+ def require_authentication
+ end
 end

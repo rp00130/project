@@ -11,11 +11,12 @@
       <th></th>
     </tr>
   </thead>
-
+</br>
+</br>
   <tbody>
     <% @events.each do |event| %>
       <tr>
-        <td><%= event.title %></td>
+        <td><b><%= event.title %></b></td>
         <td><%= event.date %></td>
         <td><%= event.description %></td>
         <td><%= link_to 'Show', event %></td>
